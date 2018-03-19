@@ -1,0 +1,5 @@
+angular.module('MetronicApp')
+.constant('httpServerUrl', 'http://192.168.0.117:89/')
+.constant('schoolId', '8FDFDC44-2B96-44B1-A9E8-36DA19FC9B5')
+.constant('userId', '259A45D6-8A05-493A-901B-66C15274A2E6')
+.constant('userName', '刘备')

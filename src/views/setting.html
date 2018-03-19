@@ -1,0 +1,57 @@
+<div class="setting">
+    <div uib-alert class="alert-warning" ng-show="alertVisible" dismiss-on-timeout="2000" close="closeAlert()">{{message}}</div>
+    <tabset justified="true">
+        <tab heading="课程类别">
+            <div class="tab-content">
+                <ul>
+                    <li ng-repeat="courseCate in courseCategoryList track by $index">
+                        <div ng-bind="courseCate.CourseCategoryName"></div>
+                    </li>
+                </ul>
+                <div class="btn btn-primary" ng-click="addCourseCate()">添加课程类别</div>
+            </div>
+        </tab>
+        <tab heading="有反思模板">
+            <div class="tab-content">
+                <div ng-repeat="courseCate in courseCategoryList track by $index">
+                    <div ng-bind="courseCate.CourseCategoryName"></div>
+                </div>
+            </div>
+        </tab>
+        <tab heading="会安排模板">
+            <div class="tab-content">
+                <div ng-repeat="courseCate in courseCategoryList track by $index">
+                    <div ng-bind="courseCate.CourseCategoryName"></div>
+                </div>
+            </div>
+        </tab>
+    </tabset>
+</div>
+
+<script type="text/ng-template" id="addCourseCate">
+    <form class="form-horizontal" style="padding: 30px;">
+        <div class="form-group">
+            <div class="col-md-12">
+                <input class="input-md form-control" type="text" placeholder="请输入类别名称" ng-model="data.cateName">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <ui-select ng-model="data.selected" theme="bootstrap">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected.XM"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in (teacherList | filter: $select.search) track by item.FlnkID">
+                        <span ng-bind="item.XM"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="form-actions">
+            <div class="row col-md-offset-4">
+                <div class="btn green" ng-click="doSave()">保存</div>
+                <div class="btn grey">取消</div>
+            </div>
+        </div>
+    </form>
+</script>
